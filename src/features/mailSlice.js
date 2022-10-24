@@ -1,14 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
-  value: 0,
-  status: 'idle',
-  sendMessageIsOpen: false,
-};
+import { createSlice } from '@reduxjs/toolkit';
 
 export const mailSlice = createSlice({
   name: 'mail',
-  initialState,
+  initialState: {
+    sendMessageIsOpen: false
+  },
   reducers: {
     openSendMessage: (state) => {
       state.sendMessageIsOpen = true;
