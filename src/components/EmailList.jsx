@@ -14,14 +14,38 @@ import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EmailRow from "./EmailRow";
 import { db } from "../firebaseConfig";
-import { doc, onSnapshot, collection } from "firebase/firestore";
+import { doc, getDocs, onSnapshot, collection } from "firebase/firestore";
 import { query, orderBy, limit } from "firebase/firestore";
 
 function EmailList() {
-  const [emails, setEmails] = useState([])
-  const emailRef = collection(db, "users")
-  console.log(emailRef)
+  const [emails, setEmails] = useState([]);
+  const emailRef = collection(db, "emails");
 
+  const timequery = query(emailRef, orderBy("timestamp", "desc"));
+
+  // useEffect(() => {
+  //   getDocs(timequery).then((response) => {
+  //     console.log(response.docs.map((item) => {
+  //       return { ...item.data(), id: item.id}
+  //     }))
+  //   })
+  // }, [timequery])
+
+  useEffect(() => {
+    onSnapshot(timequery, (data) => {
+      setEmails(
+        data.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      );
+      console.log(emails);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(emails)
+  // }, [emails])
 
   // useEffect(() => {
   //   db.collection("emails")
@@ -72,18 +96,36 @@ function EmailList() {
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>
       <div className="emailList__list">
-        <EmailRow
-          title="Twitch"
-          subject="Hey fellow Streamer!!!"
-          description="This is a test"
-          time="10pm"
-        />
-        <EmailRow
-          title="Twitch"
-          subject="Hey fellow Streamer!!!"
-          description="This is a test to see if the ellipsis appear when the message is too large"
-          time="10pm"
-        />
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            id={id}
+            key={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
+        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
       </div>
     </div>
   );
