@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EmailList.css";
 import { Checkbox, IconButton } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -13,8 +13,29 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EmailRow from "./EmailRow";
+import { db } from "../firebaseConfig";
+import { doc, onSnapshot, collection } from "firebase/firestore";
+import { query, orderBy, limit } from "firebase/firestore";
 
 function EmailList() {
+  const [emails, setEmails] = useState([])
+  const emailRef = collection(db, "users")
+  console.log(emailRef)
+
+
+  // useEffect(() => {
+  //   db.collection("emails")
+  //     .orderBy("timestamp", "desc")
+  //     .onSnapshot((snapshot) =>
+  //       setEmails(
+  //         snapshot.docs.map((doc) => ({
+  //           id: doc.id,
+  //           data: doc.data(),
+  //         }))
+  //       )
+  //     );
+  // }, []);
+
   return (
     <div className="emailList">
       <div className="emailList__settings">
@@ -51,13 +72,13 @@ function EmailList() {
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>
       <div className="emailList__list">
-        <EmailRow 
+        <EmailRow
           title="Twitch"
           subject="Hey fellow Streamer!!!"
           description="This is a test"
           time="10pm"
         />
-        <EmailRow 
+        <EmailRow
           title="Twitch"
           subject="Hey fellow Streamer!!!"
           description="This is a test to see if the ellipsis appear when the message is too large"
