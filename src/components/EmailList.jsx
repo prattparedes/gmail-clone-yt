@@ -113,19 +113,6 @@ function EmailList() {
         <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
         <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
         <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
-        <EmailRow title='EmailTest' subject='Testing the scroll and behavior when the list gets full' description='Nice website! Glad to see progress and being able to learn so much new features' time='10pm' />
       </div>
     </div>
   );
